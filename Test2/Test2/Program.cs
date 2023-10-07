@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Numerics;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Cryptography;
+﻿using System.Numerics;
 
 namespace Test2
 {
@@ -135,6 +132,7 @@ namespace Test2
 
         private static (float PerimeterABC, float PerimeterABD, float PerimeterACD) Proc57(float XA, float YA, float XB, float YB, float XC, float YC, float XD, float YD)
             => (Perim(XA, YA, XB, YB, XC, YC), Perim(XA, YA, XB, YB, XD, YD), Perim(XA, YA, XC, YC, XD, YD));
+
         private static float Perim(float XA, float YA, float XB,  float YB, float XC, float YC)
         {
             float sideOne = Leng(XA, XB, YA, YB);
@@ -184,7 +182,7 @@ namespace Test2
             return result;
         }
 
-        private static List<Vector2> Array137(List<Vector2> points)
+        private static (float perim, List<Vector2>) Array137(List<Vector2> points)
         {
             List<Vector2> suitablePoints = new List<Vector2>();
 
@@ -208,7 +206,9 @@ namespace Test2
                 }
             }
 
-            return suitablePoints;
+            float perim = Perim(suitablePoints[0].X, suitablePoints[0].Y, suitablePoints[1].X, suitablePoints[1].Y, suitablePoints[2].X, suitablePoints[2].Y);
+
+            return (perim, suitablePoints);
         }
     }
 }
