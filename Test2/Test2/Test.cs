@@ -156,14 +156,14 @@ namespace Test2
             return array;
         }
 
-        static List<Vector2> Task12(List<Vector2> points, float R)
+        static List<(Vector2, float)> Task12(List<Vector2> points, float R)
         {
-            List<Vector2> result = new List<Vector2>();
+            List<(Vector2, float)> result = new List<(Vector2, float)>();
 
             foreach (var point in points)
             {
                 if (R > point.Length())
-                    result.Add(point);
+                    result.Add((point, point.Length()));
             }
 
             return result;
